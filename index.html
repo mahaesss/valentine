@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffccd5;
+            color: #d6336c;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .no {
+            background-color: #6c757d;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="1-efef65f5.jpg" alt="Cute Valentine Image" width="300">
+    <h1>Will You Be My Valentine? ❤️</h1>
+    <div class="buttons">
+        <button class="yes" onclick="increaseSize()">Yes</button>
+        <button class="no" onclick="moveNoButton()">No</button>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        let noButton = document.querySelector('.no');
+        let noButtonY = 0;
+
+        function increaseSize() {
+            let yesButton = document.querySelector('.yes');
+            let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 5) + 'px';
+            clickCount++;
+            
+            if (clickCount >= 5) {
+                alert("Yay! Can't wait to celebrate with you! ❤️🥰");
+            }
+        }
+        
+        function moveNoButton() {
+            noButtonY -= 30; // Moves the button upwards by 30px each time it's clicked
+            noButton.style.transform = `translateY(${noButtonY}px)`;
+        }
+    </script>
+</body>
+</html>
